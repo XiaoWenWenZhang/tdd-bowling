@@ -14,5 +14,13 @@ public class BowlingGameTest {
         assertEquals(0,result);
     }
 
+    @Test
+    void should_return_300_when_calculate_given_all_knockdown(){
+        BowlingGame bowlingGame =new BowlingGame();
+        int result = bowlingGame.calulate("10，10，10，10，10，10，10，10，10，10，10，10, 10");
+        assertEquals(300,result);
+    }
+
+
 
 }
