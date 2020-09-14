@@ -2,11 +2,7 @@ import org.junit.jupiter.api.Test;
 
 import static  org.junit.jupiter.api.Assertions.*;
 public class BowlingGameTest {
-    //情况1：全部没有击倒球： 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-    //情况2：每次都全中： 10，10，10，10，10，10，10，10，10，10，10，10, 10
-    //情况3：一般情形+第十轮第一次全中
-    //情况4：一般情形+第十轮第二次补中
-    //情况5：一般情形+第十轮无全中无补中
+
     @Test
     void should_return_0_when_calculate_given_no_knockdown(){
         BowlingGame bowlingGame =new BowlingGame();
@@ -17,8 +13,15 @@ public class BowlingGameTest {
     @Test
     void should_return_300_when_calculate_given_all_knockdown(){
         BowlingGame bowlingGame =new BowlingGame();
-        int result = bowlingGame.calulate("10，10，10，10，10，10，10，10，10，10，10，10, 10");
+        int result = bowlingGame.calulate("10,10,10,10,10,10,10,10,10,10,10,10,10");
         assertEquals(300,result);
+    }
+
+    @Test
+    void  should_return_number_when_calculate_given_tenth_rond_firth_knockdown(){
+        BowlingGame bowlingGame =new BowlingGame();
+        int result = bowlingGame.calulate("5,3,10,7,3,4,4,10,5,2,4,2,7,2,5,5,10,6,3");
+        assertEquals(128,result);
     }
 
 
